@@ -11,11 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var CenteredTextLabel: UILabel!
-    @IBOutlet weak var TLButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CenteredTextLabel.hidden = true
+        self.CenteredTextLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,34 +22,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // OLD
-    func updateLabel(buttonText:String) {
-        CenteredTextLabel.hidden = false
-        CenteredTextLabel.text = buttonText
-    }
-    
-    // NEW
-    func updateLabelNew(buttonText:String) {
-        CenteredTextLabel.hidden = false
-        CenteredTextLabel.text = buttonText
+    func updateLabel(text:String) {
+        CenteredTextLabel.text = text
     }
 
-    @IBAction func TLButtonPressed(sender: UIButton) {
-        let me = TLButton.titleLabel?.text
-        updateLabel(me!)
+    @IBAction func cornerButtonPressed(sender: UIButton) {
+        if let titleLabelText = sender.titleLabel?.text {
+            updateLabel(titleLabelText)
+        } else {
+            print("Why isn't there some title label text?")
+        }
     }
-
-    @IBAction func TRButtonPressed(sender: UIButton) {
-        updateLabel("TR")
-    }
-    
-    @IBAction func BLButtonPressed(sender: UIButton) {
-        updateLabel("BL")
-    }
-    
-    @IBAction func BRButtonPressed(sender: UIButton) {
-        updateLabel("BR")
-    }
-    
 }
 
