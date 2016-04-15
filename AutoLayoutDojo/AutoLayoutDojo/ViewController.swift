@@ -23,15 +23,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // OLD
     func updateLabel(text:String) {
         CenteredTextLabel.text = text
-    }
-    
-    // NEW
-    func updateLabelNew(buttonText:String) {
-        CenteredTextLabel.hidden = false
-        CenteredTextLabel.text = buttonText
     }
 
     @IBAction func cornerButtonPressed(sender: UIButton) {
