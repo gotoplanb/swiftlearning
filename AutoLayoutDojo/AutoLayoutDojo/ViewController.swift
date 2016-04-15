@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var CenteredTextLabel: UILabel!
-    @IBOutlet weak var TLButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
