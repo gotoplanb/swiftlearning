@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CenteredTextLabel.hidden = true
+        self.CenteredTextLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,9 +24,8 @@ class ViewController: UIViewController {
     }
     
     // OLD
-    func updateLabel(buttonText:String) {
-        CenteredTextLabel.hidden = false
-        CenteredTextLabel.text = buttonText
+    func updateLabel(text:String) {
+        CenteredTextLabel.text = text
     }
     
     // NEW
