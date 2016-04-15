@@ -35,22 +35,12 @@ class ViewController: UIViewController {
         CenteredTextLabel.text = buttonText
     }
 
-    @IBAction func TLButtonPressed(sender: UIButton) {
-        let me = TLButton.titleLabel?.text
-        updateLabel(me!)
+    @IBAction func cornerButtonPressed(sender: UIButton) {
+        if let titleLabelText = sender.titleLabel?.text {
+            updateLabel(titleLabelText)
+        } else {
+            print("Why isn't there some title label text?")
+        }
     }
-
-    @IBAction func TRButtonPressed(sender: UIButton) {
-        updateLabel("TR")
-    }
-    
-    @IBAction func BLButtonPressed(sender: UIButton) {
-        updateLabel("BL")
-    }
-    
-    @IBAction func BRButtonPressed(sender: UIButton) {
-        updateLabel("BR")
-    }
-    
 }
 
