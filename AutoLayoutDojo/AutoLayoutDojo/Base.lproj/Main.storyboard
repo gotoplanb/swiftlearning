@@ -21,18 +21,30 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feZ-oI-Q2r">
                                 <rect key="frame" x="16" y="20" width="30" height="30"/>
                                 <state key="normal" title="TL"/>
+                                <connections>
+                                    <action selector="cornerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vdr-BK-cLt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uk-Kb-LSR">
                                 <rect key="frame" x="329" y="20" width="30" height="30"/>
                                 <state key="normal" title="TR"/>
+                                <connections>
+                                    <action selector="cornerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9qW-wc-COd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5MD-Gi-hhV">
                                 <rect key="frame" x="329" y="637" width="30" height="30"/>
                                 <state key="normal" title="BR"/>
+                                <connections>
+                                    <action selector="cornerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ggv-z9-v2f"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joG-T2-Biq">
                                 <rect key="frame" x="16" y="637" width="30" height="30"/>
                                 <state key="normal" title="BL"/>
+                                <connections>
+                                    <action selector="cornerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nRg-w7-wZd"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centered Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX1-Ii-Wms">
                                 <rect key="frame" x="133.5" y="40" width="108" height="21"/>
