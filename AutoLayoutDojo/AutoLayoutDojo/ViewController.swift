@@ -27,11 +27,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cornerButtonPressed(sender: UIButton) {
-        if let titleLabelText = sender.titleLabel?.text {
-            updateLabel(titleLabelText)
-        } else {
-            print("Why isn't there some title label text?")
+        guard let titleLabelText = sender.titleLabel?.text else {
+            print("Why u no titleLabel?")
+            return
         }
+        updateLabel(titleLabelText)
     }
 }
 
