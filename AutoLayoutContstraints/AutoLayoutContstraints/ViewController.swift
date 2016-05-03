@@ -9,35 +9,62 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let redBox = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // we create a simple UIView
         
-        let redBox = UIView()
-        
-        redBox.backgroundColor = UIColor.redColor()
-        redBox.topAnchor.constraintEqualToAnchor(view.topAnchor)
-        redBox.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
-        redBox.leftAnchor.constraintEqualToAnchor(view.leftAnchor)
-        redBox.rightAnchor.constraintEqualToAnchor(view.rightAnchor)
         redBox.translatesAutoresizingMaskIntoConstraints = false
-        
+        redBox.backgroundColor = .redColor()
         view.addSubview(redBox)
         
-        redBox.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 30).active = true
-        redBox.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -50).active = true
-        redBox.leftAnchor.constraintEqualToAnchor(view.leftAnchor, constant: 20).active = true
-        redBox.rightAnchor.constraintEqualToAnchor(view.rightAnchor, constant: -20).active = true
- 
+        // Top, Bottom, Left, Right constraints
+        
+        let redBoxTopConstraint = NSLayoutConstraint(item: redBox, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: 30)
+        let redBoxBottomConstraint = NSLayoutConstraint(item: redBox, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: -50)
+        
+        let redBoxLeftConstraint = NSLayoutConstraint(item: redBox, attribute: .Leading, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1, constant: 20)
+        let redBoxRightConstraint = NSLayoutConstraint(item: redBox, attribute: .Trailing, relatedBy: .Equal, toItem: self.view, attribute: .Trailing, multiplier: 1, constant: -20)
+        
+        // Add constraints to the view
+        self.view.addConstraints([redBoxTopConstraint, redBoxBottomConstraint, redBoxLeftConstraint, redBoxRightConstraint])
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.performSelector(#selector(updateView), withObject: nil, afterDelay: 5)
+    }
+    
+    func updateView() {
+        
+//        print(self.view.constraints)
+        self.view.removeConstraints(self.view.constraints)
+//        print("the constraints should be empty --- \(self.view.constraints)")
+        let redViewCenterXConstraint = NSLayoutConstraint(item: self.redBox, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0)
+        
+        let redViewCenterYConstraint = NSLayoutConstraint(item: self.redBox, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0)
+        
+        let redViewWidthConstraint = NSLayoutConstraint(item: self.redBox, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 200)
+        
+        let redViewHeightConstraint = NSLayoutConstraint(item: self.redBox, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 200)
+        
+        self.view.addConstraints([redViewCenterXConstraint, redViewCenterYConstraint, redViewWidthConstraint, redViewHeightConstraint])
+        print(self.view.constraints)
+        
+        UIView.animateWithDuration(3, animations: {
+            self.view.layoutIfNeeded()
+        }) { (completed) in
+            print("Animations completed")
+        }
+    }
+    
 }
 
