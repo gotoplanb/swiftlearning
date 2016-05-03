@@ -40,14 +40,15 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.performSelector(#selector(updateView), withObject: nil, afterDelay: 5)
+        // Will uncomment bottom after i figure out what's going on with removing and then adding new constraints... not quite the right behavior
+//        self.performSelector(#selector(updateView), withObject: nil, afterDelay: 5)
     }
     
     func updateView() {
         
-//        print(self.view.constraints)
+        // WIP
         self.view.removeConstraints(self.view.constraints)
-//        print("the constraints should be empty --- \(self.view.constraints)")
+        
         let redViewCenterXConstraint = NSLayoutConstraint(item: self.redBox, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0)
         
         let redViewCenterYConstraint = NSLayoutConstraint(item: self.redBox, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0)
